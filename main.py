@@ -1,6 +1,6 @@
 # main.py
 
-from dist.alpha_miner import AlphaMiner
+from src.alpha_miner import AlphaMiner
 
 # Given event log
 event_log = [

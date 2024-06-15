@@ -1,6 +1,6 @@
 import unittest
 
-from dist.alpha_miner import AlphaMiner
+from src.alpha_miner import AlphaMiner
 
 class TestAlphaMiner(unittest.TestCase):
     def setUp(self):
