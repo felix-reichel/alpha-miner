@@ -2,7 +2,6 @@ import unittest
 
 from alpha_miner import AlphaMiner
 
-
 class TestAlphaMiner(unittest.TestCase):
     def setUp(self):
         # Example event log
