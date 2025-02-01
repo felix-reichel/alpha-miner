@@ -1,4 +1,5 @@
 from collections import defaultdict
+from graphviz import Digraph
 
 
 class AlphaMiner:
@@ -63,3 +64,37 @@ class AlphaMiner:
 
         return YL
 
+    def get_petri_net(self):
+        dot = Digraph(comment='Petri Net', format='png')
+
+        dot.node('start', shape='circle', style='filled', color='lightgrey', label='')
+        dot.node('end', shape='circle', style='filled', color='lightgrey', label='')
+
+        place_count = 0
+
+        for activity in self.activities:
+            outputs = set()
+            for follow in self.activities:
+                if self.footprint[activity][follow] == '→':
+                    outputs.add(follow)
+
+            for output in outputs:
+                place_id = f'p{place_count}'
+                dot.node(place_id, shape='circle', label='')
+                dot.node(activity, shape='box', style='filled', color='lightgrey')
+                dot.node(output, shape='box', style='filled', color='lightgrey')
+
+                dot.edge(activity, place_id)
+                dot.edge(place_id, output)
+
+                place_count += 1
+
+            if not outputs:
+                dot.edge('start', activity)
+                dot.edge(activity, 'end')
+            elif activity == min(self.activities):
+                dot.edge('start', activity)
+            if all(self.footprint[activity][follow] == '#' for follow in self.activities):
+                dot.edge(activity, 'end')
+
+        return dot

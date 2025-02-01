@@ -1,0 +1,25 @@
+// Petri Net
+digraph {
+	start [label="" color=lightgrey shape=circle style=filled]
+	end [label="" color=lightgrey shape=circle style=filled]
+	p0 [label="" shape=circle]
+	a [color=lightgrey shape=box style=filled]
+	c [color=lightgrey shape=box style=filled]
+	a -> p0
+	p0 -> c
+	p1 [label="" shape=circle]
+	a [color=lightgrey shape=box style=filled]
+	b [color=lightgrey shape=box style=filled]
+	a -> p1
+	p1 -> b
+	start -> a
+	p2 [label="" shape=circle]
+	b [color=lightgrey shape=box style=filled]
+	d [color=lightgrey shape=box style=filled]
+	b -> p2
+	p2 -> d
+	start -> c
+	c -> end
+	start -> d
+	d -> end
+}

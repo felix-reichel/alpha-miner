@@ -13,10 +13,11 @@ event_log = [
 alpha_algorithm = AlphaMiner(event_log)
 
 # Display the footprint matrix
-alpha_algorithm.display_footprint()
+print(alpha_algorithm.get_footprint())
 
 # Displays maximal causal pairs
-alpha_algorithm.display_YL()
+print(alpha_algorithm.get_YL())
 
 # Displays as petri net
-alpha_algorithm.display_petri_net()
+petri_net = alpha_algorithm.get_petri_net()
+petri_net.render('output/petri_net', view=False)
