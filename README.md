@@ -5,27 +5,27 @@ The alpha-miner package implements the α-algorithm for process mining, transfor
 ## Example Usage:
 
 ```
-from alpha_miner import AlphaMiner
+# main.py
 
-# Example event log
+from src.alpha_miner import AlphaMiner
+
+# Given event log
 event_log = [
+    ['a', 'b', 'c'],
     ['a', 'c', 'b'],
-    ['a', 'g', 'b'],
-    ['a', 'd', 'e', 'f', 'b']
+    ['a', 'b', 'd']
 ]
 
-# Initialize AlphaMiner with the event log
-miner = AlphaMiner(event_log)
+# Instance
+alpha_algorithm = AlphaMiner(event_log)
 
-# Retrieve and display footprint matrix
-footprint_matrix = miner.get_footprint()
-miner.display_footprint()
+# Display the footprint matrix
+print(alpha_algorithm.get_footprint())
 
-# Retrieve and display YL sets
-YL_sets = miner.get_YL()
-miner.display_YL()
+# Displays maximal causal pairs
+print(alpha_algorithm.get_YL())
 
-# Retrieve and display Petri net representation
-petri_net = miner.get_petri_net()
-miner.display_petri_net()
+# Displays as petri net
+petri_net = alpha_algorithm.get_petri_net()
+petri_net.render('output/petri_net', view=False)
 ```
