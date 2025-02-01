@@ -2,3 +2,4 @@
 *.xml
 *.pyc
 *.iml
+/alpha_miner.egg-info

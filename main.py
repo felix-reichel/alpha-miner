@@ -4,12 +4,9 @@ from src.alpha_miner import AlphaMiner
 
 # Given event log
 event_log = [
+    ['a', 'b', 'c'],
     ['a', 'c', 'b'],
-    ['a', 'c', 'b'],
-    ['a', 'c', 'b'],
-    ['a', 'g', 'b'],
-    ['a', 'g', 'b'],
-    ['a', 'd', 'e', 'f', 'b']
+    ['a', 'b', 'd']
 ]
 
 # Instance
